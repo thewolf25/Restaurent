@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +24,7 @@ public class Table {
 	private String type;
 	private double supplement;
 	@OneToMany(mappedBy = "table")
+	@JsonIgnore
 	private List<Ticket> ticket;
 	
 }

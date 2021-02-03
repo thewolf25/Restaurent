@@ -1,6 +1,6 @@
 package org.restaurant.entity;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -21,11 +23,14 @@ public class Client {
 	private Long id;
 	private String nom;
 	private String prenom;
-	private LocalDateTime dateDeNaissance;
+	private LocalDate dateDeNaissance;
 	private String courriel;
 	private String telephone;
 	@OneToMany(mappedBy = "client")
+	@JsonIgnore
 	private List<Ticket> tickets;
+	
+	
 	
 	
 	

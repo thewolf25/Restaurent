@@ -1,11 +1,11 @@
 package org.restaurant.repository;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
 import org.restaurant.entity.Met;
 
 @NoRepositoryBean
-public interface MetBaseRepository<T extends Met> extends CrudRepository<T, Long> {
+public interface MetBaseRepository<T extends Met> extends JpaRepository<T, String> {
 
   /**
    * Method findByEmail

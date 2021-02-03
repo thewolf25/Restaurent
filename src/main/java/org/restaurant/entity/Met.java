@@ -12,7 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 
 import lombok.Getter;
@@ -35,6 +35,10 @@ public abstract class Met {
 	private double prix;
 	
 	@ManyToMany(mappedBy = "mets")
-	
+	@JsonIgnore
 	private List<Ticket> tickets;
+	
+	public String getType() {
+		return this.getClass().getSimpleName();
+	}
 }

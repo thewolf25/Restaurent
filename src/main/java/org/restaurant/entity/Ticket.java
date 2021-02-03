@@ -39,5 +39,9 @@ inverseJoinColumns = {
 		@JoinColumn(name = "Met_id")}
 )
 private List<Met> mets;
-	
+
+public double getAddition() {
+	return mets.stream().mapToDouble((s)-> s.getPrix()).sum();
+}
+
 }
